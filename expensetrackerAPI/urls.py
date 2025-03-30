@@ -6,3 +6,8 @@ urlpatterns = [
     path('books/', views.BooksView.as_view()),
     path('books/<int:pk>', views.SingleBookView.as_view()),
 ]
+
+# * DJOSER
+# * Register: /auth/users/
+# * Login: /auth/token/login
+# * Logout: /auth/token/logout

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # * Django Rest Framework 🔥
 from rest_framework import generics
-
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 # * Models 🗂️
 from .models import Category, Book
 from .serializers import CategorySerializer, BookSerializer
@@ -16,11 +16,13 @@ def home(request):
 class BooksView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     # * GET ✅
     # * POST ✅
 
 # * GET/UPDATE/DELETE
 class SingleBookView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Book.objects.all()
     serializer_class = BookSerializer
