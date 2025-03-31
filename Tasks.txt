@@ -9,7 +9,7 @@ Tasks:
 5. View Books by Category
 6. View Books expenses
 7. View Books expenses by category
-8. Pagination
+✅ 8. Pagination
 9. Ordering
 
 - Authentication
