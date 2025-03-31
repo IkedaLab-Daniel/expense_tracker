@@ -1,0 +1,39 @@
+Tasks:
+
+########### API ##############
+- CRUD
+✅ 1. View all books
+✅ 2. View single book via book's id
+✅ 3. Edit/Update single book 
+✅ 4. Delete a single book 
+5. View Books by Category
+6. View Books expenses
+7. View Books expenses by category
+8. Pagination
+9. Ordering
+
+- Authentication
+✅ 1. Protect: Book View 
+
+- Authorization
+✅ 1. Admin: All action 
+✅ 2. Editors: All actions
+✅ 3. Viewers: Read Only 
+✅ 4. No LogIn - No action 
+
+- User Management (Endpoints)
+✅ 1. Register 
+✅ 2. Log In 
+✅ 3. Log Out
+4. Reset Password
+5. Delete account 
+✅ 6. Admin add a user to a group
+✅ 7. Admin remove a user to a group
+
+######## Client ##############
+
+<to be added>
+
+
+
+

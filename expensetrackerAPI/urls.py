@@ -5,6 +5,11 @@ urlpatterns = [
     path('', views.home),
     path('books/', views.BooksView.as_view()),
     path('books/<int:pk>', views.SingleBookView.as_view()),
+    # ? User management - Assign Group to User
+    path('users/<int:pk>/groups/', views.UserGroupUpdateView.as_view()), 
+        # ? PATCH Only. 
+        # ? { "groups": ["editors"] }
+        # ? if no payload, remove user to all groups
 ]
 
 # * DJOSER
