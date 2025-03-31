@@ -17,3 +17,7 @@ urlpatterns = [
 # * Register: /auth/users/
 # * Login: /auth/token/login
 # * Logout: /auth/token/logout
+
+# * Assign user to groups: 
+# * http://127.0.0.1:8000/api/users/#/groups/ 
+# * where # is an int for user's id

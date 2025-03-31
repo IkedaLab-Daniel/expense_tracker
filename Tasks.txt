@@ -6,9 +6,9 @@ Tasks:
 ✅ 2. View single book via book's id
 ✅ 3. Edit/Update single book 
 ✅ 4. Delete a single book 
-5. View Books by Category
-6. View Books expenses
-7. View Books expenses by category
+⌛ 5. View Books by Category
+⌛ 6. View Books expenses
+⌛ 7. View Books expenses by category
 ✅ 8. Pagination
 ✅ 9. Filter: Ordering by title (ASC/DES)
 ✅ 10. Filter: Ordering by expense (ASC/DES)
@@ -26,15 +26,40 @@ Tasks:
 ✅ 1. Register 
 ✅ 2. Log In 
 ✅ 3. Log Out
-4. Reset Password
-5. Delete account 
+⌛ 4. Reset Password
+⌛ 5. Delete account 
 ✅ 6. Admin add a user to a group
 ✅ 7. Admin remove a user to a group
 
+- Database:
+✅ Connect to MySQL
+
 ######## Client ##############
 
-<to be added>
+Pages: 
+1. Home Page (Visitor / User)
+    1.1. View all books
+    1.2. Filters: Category, Ordering
+    1.3. Login / Register links
 
+2. Log In / Register
 
+3. Home Page (User)
+    3.1. View all books
+    3.2. Filters: Category, Ordering
+    3.3. Log Out
+    3.4. Request to be Editor 
+
+4. Homa Pager (Editors / Admin)
+    4.1. View all books
+    4.2. Filters: Category, Ordering
+    4.3. Add Book item
+    4.4. Update Book item 
+    4.5. Delete Book item
+
+5. About Page 
+    5.1. About Ice
+    5.2. About the project
+    5.3. Links
 
 
