@@ -8,11 +8,12 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.filters import OrderingFilter
 # * Models 🗂️
 from .models import Category, Book
 from .serializers import CategorySerializer, BookSerializer, UserRoleSerializer
 
-# * Pagination
+# * Pagination Class
 class CustomPagination(PageNumberPagination):
     page_size = 5
     page_size_query_description = 'page_size'
@@ -27,6 +28,8 @@ class BooksView(generics.ListCreateAPIView):
     serializer_class = BookSerializer
     # permission_classes = [IsAuthenticatedOrReadOnly]
     pagination_class = CustomPagination
+    ordering_fields = ['title', 'distribution_expense']
+    ordering = []
     # * GET ✅
     # * POST ✅
 

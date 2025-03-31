@@ -10,7 +10,8 @@ Tasks:
 6. View Books expenses
 7. View Books expenses by category
 ✅ 8. Pagination
-9. Ordering
+✅ 9. Filter: Ordering by title (ASC/DES)
+✅ 10. Filter: Ordering by expense (ASC/DES)
 
 - Authentication
 ✅ 1. Protect: Book View 
