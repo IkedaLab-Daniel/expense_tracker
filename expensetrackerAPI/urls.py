@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.home),
     path('books/', views.BooksView.as_view()),
     path('books/<int:pk>', views.SingleBookView.as_view()),
+    path('books/category/<int:category_id>', views.BookByCategoryView.as_view()),
     path('books/expenses/', views.TotalExpensesView.as_view()),
     # ? User management - Assign Group to User
     path('users/<int:pk>/groups/', views.UserGroupUpdateView.as_view()), 

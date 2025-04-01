@@ -26,7 +26,7 @@ def home(request):
 class BooksView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+    # ! permission_classes = [IsAuthenticatedOrReadOnly]
     pagination_class = CustomPagination
     ordering_fields = ['title', 'distribution_expense']
     ordering = []
@@ -38,6 +38,15 @@ class SingleBookView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+# * GET Books by category
+class BookByCategoryView(generics.ListAPIView):
+    serializer_class = BookSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_queryset(self):
+        category_id = self.kwargs['category_id']
+        return Book.objects.filter(category_id=category_id)
 
 # * GET total expenses
 class TotalExpensesView(APIView):

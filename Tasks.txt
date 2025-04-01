@@ -1,13 +1,13 @@
 Tasks:
 
-########### API ##############
+########### APIs ##############
 - CRUD
 ✅ 1. View all books
 ✅ 2. View single book via book's id
 ✅ 3. Edit/Update single book 
 ✅ 4. Delete a single book 
-⌛ 5. View Books by Category
-⌛ 6. View Books expenses
+✅ 5. View Books by Category
+✅ 6. View Books expenses
 ⌛ 7. View Books expenses by category
 ✅ 8. Pagination
 ✅ 9. Filter: Ordering by title (ASC/DES)
@@ -62,4 +62,41 @@ Pages:
     5.2. About the project
     5.3. Links
 
+# Book by cat
 
+from rest_framework import generics
+from .models import Book
+from .serializers import BookSerializer
+
+class BooksByCategoryView(generics.ListAPIView):
+    serializer_class = BookSerializer
+
+    def get_queryset(self):
+        category_id = self.kwargs['category_id']
+        return Book.objects.filter(category_id=category_id)
+
+from django.urls import path
+from .views import BooksByCategoryView
+
+urlpatterns = [
+    path('books/category/<int:category_id>/', BooksByCategoryView.as_view(), name='books-by-category'),
+]
+
+### expense by cat
+
+from django.db.models import Sum
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Book, Category
+
+class ExpensesByCategoryView(APIView):
+    def get(self, request):
+        expenses_by_category = Book.objects.values('category__id', 'category__name').annotate(
+            total_expense=Sum('distribution_expense')
+        )
+        return Response(expenses_by_category)
+
+urlpatterns += [
+    path('expenses/total/', TotalExpensesView.as_view(), name='total-expenses'),
+    path('expenses/category/', ExpensesByCategoryView.as_view(), name='expenses-by-category'),
+]
