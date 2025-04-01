@@ -8,7 +8,7 @@ Tasks:
 ✅ 4. Delete a single book 
 ✅ 5. View Books by Category
 ✅ 6. View Books expenses
-⌛ 7. View Books expenses by category
+✅ 7. View Books expenses by category (! NO Category Name)
 ✅ 8. Pagination
 ✅ 9. Filter: Ordering by title (ASC/DES)
 ✅ 10. Filter: Ordering by expense (ASC/DES)
@@ -61,22 +61,3 @@ Pages:
     5.1. About Ice
     5.2. About the project
     5.3. Links
-
-### expense by cat
-
-from django.db.models import Sum
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from .models import Book, Category
-
-class ExpensesByCategoryView(APIView):
-    def get(self, request):
-        expenses_by_category = Book.objects.values('category__id', 'category__name').annotate(
-            total_expense=Sum('distribution_expense')
-        )
-        return Response(expenses_by_category)
-
-urlpatterns += [
-    path('expenses/total/', TotalExpensesView.as_view(), name='total-expenses'),
-    path('expenses/category/', ExpensesByCategoryView.as_view(), name='expenses-by-category'),
-]
