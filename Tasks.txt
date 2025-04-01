@@ -62,26 +62,6 @@ Pages:
     5.2. About the project
     5.3. Links
 
-# Book by cat
-
-from rest_framework import generics
-from .models import Book
-from .serializers import BookSerializer
-
-class BooksByCategoryView(generics.ListAPIView):
-    serializer_class = BookSerializer
-
-    def get_queryset(self):
-        category_id = self.kwargs['category_id']
-        return Book.objects.filter(category_id=category_id)
-
-from django.urls import path
-from .views import BooksByCategoryView
-
-urlpatterns = [
-    path('books/category/<int:category_id>/', BooksByCategoryView.as_view(), name='books-by-category'),
-]
-
 ### expense by cat
 
 from django.db.models import Sum

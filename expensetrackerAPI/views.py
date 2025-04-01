@@ -54,6 +54,15 @@ class TotalExpensesView(APIView):
         total_expense = Book.objects.aggregate(total=Sum('distribution_expense'))['total'] or 0
         return Response({"total_expenses": total_expense})
 
+# * GET expenses by category
+class ExpensesByCategoryView(APIView):
+    def get(self, request):
+        # ! No category name
+        expenses_by_category = Book.objects.values('category__id').annotate(
+            total_expense=Sum('distribution_expense')
+        )
+        return Response(expenses_by_category)
+
 # * Admin will assign user to group "editors"
 class UserGroupUpdateView(generics.UpdateAPIView):
     queryset = User.objects.all()
