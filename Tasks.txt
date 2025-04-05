@@ -26,10 +26,8 @@ Tasks:
 ✅ 1. Register 
 ✅ 2. Log In 
 ✅ 3. Log Out
-⌛ 4. Reset Password
-⌛ 5. Delete account 
-✅ 6. Admin add a user to a group
-✅ 7. Admin remove a user to a group
+✅ 4. Admin add a user to a group
+✅ 5. Admin remove a user to a group
 
 - Database:
 ✅ Connect to MySQL
