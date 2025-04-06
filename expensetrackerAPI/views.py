@@ -27,7 +27,7 @@ class BooksView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     # ! permission_classes = [IsAuthenticatedOrReadOnly]
-    pagination_class = CustomPagination
+    # ! pagination_class = CustomPagination
     ordering_fields = ['title', 'distribution_expense']
     ordering = []
     # * GET ✅
