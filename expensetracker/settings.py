@@ -139,8 +139,8 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
 
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 20,
+# !    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+# !    'PAGE_SIZE': 20,
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',       
         'rest_framework.filters.OrderingFilter'
@@ -153,5 +153,5 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # ? your React dev server (local)
-    "https://smartshelfclient.netlify.app/",
+    "https://smartshelfclient.netlify.app",
 ]
