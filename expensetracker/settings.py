@@ -154,4 +154,5 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # ? your React dev server (local)
     "https://smartshelfclient.netlify.app",
+    "expense-tracker-7oow.onrender.com",
 ]
