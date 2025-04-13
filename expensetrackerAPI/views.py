@@ -15,7 +15,7 @@ from .serializers import CategorySerializer, BookSerializer, UserRoleSerializer
 
 # * Pagination Class
 class CustomPagination(PageNumberPagination):
-    page_size = 5
+    page_size = 20
     page_size_query_description = 'page_size'
     max_page_size = 100
 
@@ -26,8 +26,8 @@ def home(request):
 class BooksView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    # ! permission_classes = [IsAuthenticatedOrReadOnly]
-    # ! pagination_class = CustomPagination
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    pagination_class = CustomPagination
     ordering_fields = ['title', 'distribution_expense']
     ordering = []
     # * GET ✅

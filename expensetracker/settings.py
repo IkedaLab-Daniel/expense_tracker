@@ -81,13 +81,16 @@ WSGI_APPLICATION = 'expensetracker.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "expense_tracker",
-        "USER": "root",
-        "PASSWORD": "ikedalab123",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'freedb_deviceice',   # From freedb.tech
+        'USER': 'freedb_iceice',        # From freedb.tech
+        'PASSWORD': 'bbMk4#K8Q7wVhR6',    # From freedb.tech
+        'HOST': 'sql.freedb.tech',      # or the host they gave you
+        'PORT': '3306',                 # Usually 3306
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -140,7 +143,7 @@ REST_FRAMEWORK = {
     ],
 
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 20,
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',       
         'rest_framework.filters.OrderingFilter'
@@ -152,5 +155,5 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # your React dev server
+    "http://localhost:5173",  # ? your React dev server (local)
 ]
