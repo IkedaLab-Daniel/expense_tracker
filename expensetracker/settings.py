@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!-yh+n2mvtht!50&4per!*p^-@-k6=6_=3k^pfrk=70p1j95+-'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = []
 
@@ -83,14 +83,11 @@ WSGI_APPLICATION = 'expensetracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'freedb_deviceice',   # From freedb.tech
-        'USER': 'freedb_iceice',        # From freedb.tech
-        'PASSWORD': 'bbMk4#K8Q7wVhR6',    # From freedb.tech
-        'HOST': 'sql.freedb.tech',      # or the host they gave you
-        'PORT': '3306',                 # Usually 3306
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASS'),
+        'HOST': os.getenv('DB_HOST', 'sql.freedb.tech'),
+        'PORT': os.getenv('DB_PORT', '3306'),
     }
 }
 
@@ -156,4 +153,5 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # ? your React dev server (local)
+    "https://smartshelfclient.netlify.app/",
 ]
